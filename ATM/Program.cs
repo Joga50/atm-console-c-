@@ -62,6 +62,54 @@ public cardHolder(string firstName, string lastName, int pin, string cardNum, do
     { balance = newBalance; }
 
 
+    public static void Main(String[] args)
+
+    {
+        void printOptions()
+        {
+            Console.WriteLine("Please choose from on of the options");
+            Console.WriteLine("1. Deposit");
+            Console.WriteLine("2. Withdraw");
+            Console.WriteLine("3. Show Balance");
+            Console.WriteLine("4. Exit");
+        }
+
+        void deposit(cardHolder currentUser)
+        {
+            Console.WriteLine("How much money do you want to deposit?");
+            double deposit = Double.Parse(Console.ReadLine());
+            currentUser.setBalance(deposit);
+            Console.WriteLine("Ty your new balance is: " + currentUser.getBalance());
+        }
+
+        void withdraw(cardHolder currentUser)
+        {
+            Console.WriteLine("How much money do oyu want to withdreaw: ");
+            double withdrawal = Double.Parse(Console.ReadLine());
+            //YOU HAVE to check that the user doesnt withdraw more money than he has"
+            if(currentUser.getBalance() > withdrawal)
+            {
+                Console.WriteLine("INSUFFICIENT BALANCE");
+            }
+            else 
+            { 
+                
+ 
+                currentUser.setBalance(currentUser.getBalance()- withdrawal);
+                Console.WriteLine("Thank you, you can go");
+            }
+
+        }
+
+        void balance(cardHolder currentUser)
+        {
+            Console.WriteLine("Current balance" + currentUser.getBalance());
+        }
 
 
-}
+
+        }
+    }
+
+
+
